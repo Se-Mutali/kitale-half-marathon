@@ -24,7 +24,7 @@ export async function ensureAdminUser() {
     existing.role = 'admin';
     existing.active = true;
     await existing.save();
-    console.log(`Admin user ready: ${email}`);
+    console.log(`Admin user ready: ${email} (updated from environment)`);
     return;
   }
 

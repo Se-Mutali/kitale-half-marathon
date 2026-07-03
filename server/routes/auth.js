@@ -17,12 +17,14 @@ router.post('/login', async (req, res, next) => {
     const admin = await AdminUser.findOne({ email }).select('+passwordHash');
 
     if (!admin || !admin.active) {
+      console.warn(`Admin login failed: no active admin found for ${email}`);
       return res.status(401).json({ message: 'Invalid admin credentials.' });
     }
 
     const passwordOk = await admin.verifyPassword(password);
 
     if (!passwordOk) {
+      console.warn(`Admin login failed: password mismatch for ${email}`);
       return res.status(401).json({ message: 'Invalid admin credentials.' });
     }
 
