@@ -1,9 +1,10 @@
 import { AdminUser } from '../models/AdminUser.js';
+import { cleanEnvValue } from './env.js';
 
 export async function ensureAdminUser() {
-  const email = String(process.env.ADMIN_EMAIL || '').trim().toLowerCase();
-  const password = String(process.env.ADMIN_PASSWORD || '');
-  const name = process.env.ADMIN_NAME || 'Kitale Admin';
+  const email = cleanEnvValue(process.env.ADMIN_EMAIL).toLowerCase();
+  const password = cleanEnvValue(process.env.ADMIN_PASSWORD);
+  const name = cleanEnvValue(process.env.ADMIN_NAME) || 'Kitale Admin';
 
   if (!email || !password) {
     console.warn('ADMIN_EMAIL or ADMIN_PASSWORD not set; skipping startup admin user setup.');

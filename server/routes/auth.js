@@ -1,13 +1,14 @@
 import { Router } from 'express';
 import { AdminUser } from '../models/AdminUser.js';
 import { requireAdminAuth, signAdminToken } from '../middleware/auth.js';
+import { cleanEnvValue } from '../utils/env.js';
 
 const router = Router();
 
 router.post('/login', async (req, res, next) => {
   try {
-    const email = String(req.body?.email || '').trim().toLowerCase();
-    const password = String(req.body?.password || '');
+    const email = cleanEnvValue(req.body?.email).toLowerCase();
+    const password = cleanEnvValue(req.body?.password);
 
     if (!email || !password) {
       return res.status(400).json({ message: 'Email and password are required.' });
