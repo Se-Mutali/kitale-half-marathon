@@ -28,11 +28,13 @@ Landing page, registration form, and MongoDB-backed API for Kitale Half Marathon
    npm.cmd run dev:api
    ```
 
-5. Create or update the first admin login:
+5. Create or update the first admin login manually, if needed:
 
    ```bash
    npm.cmd run seed:admin
    ```
+
+   The app also creates/updates this admin automatically on startup when `ADMIN_EMAIL` and `ADMIN_PASSWORD` are set.
 
 6. Start the frontend in another terminal:
 

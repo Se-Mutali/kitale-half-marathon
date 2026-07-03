@@ -12,6 +12,7 @@ import registrationsRouter from './routes/registrations.js';
 import paymentsRouter from './routes/payments.js';
 import adminRouter from './routes/admin.js';
 import authRouter from './routes/auth.js';
+import { ensureAdminUser } from './utils/ensureAdminUser.js';
 
 dotenv.config();
 
@@ -85,6 +86,7 @@ app.use((error, _req, res, _next) => {
 
 try {
   await connectDb(process.env.MONGODB_URI);
+  await ensureAdminUser();
   app.listen(port, () => {
     console.log(`Kitale Half Marathon API running on http://127.0.0.1:${port}`);
   });
