@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Eras Bold ITC';
+  src: url('/eras-bold-itc.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color: #191c1d;
+  background: #f8f9fa;
+  font-family: 'Poppins', system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    linear-gradient(180deg, rgba(180, 220, 114, 0.18), transparent 520px),
+    #f8f9fa;
+}
+
+::selection {
+  background: #6b330d;
+  color: white;
+}
+
+.marathon-heading {
+  font-family: 'Eras Bold ITC', 'Poppins', system-ui, sans-serif;
+  text-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+.brand-heading {
+  font-family: 'Eras Bold ITC', 'Poppins', system-ui, sans-serif;
+}
